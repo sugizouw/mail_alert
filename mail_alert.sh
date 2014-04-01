@@ -1,0 +1,1 @@
+#!/bin/shmail_alert() {  while read i  do    echo $i | grep -q 'EXT3-fs err'    if [ $? = "0" ];then      echo $i | mail -s ERROR hogehoge@hogehoge.jp    fi  done}tail -n 0 --follow=name --retry $1 | mail_alert
